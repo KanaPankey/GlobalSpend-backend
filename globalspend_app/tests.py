@@ -1,7 +1,3 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.test import TestCase
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('globalspend_app.urls')),
-]
+# Create your tests here.

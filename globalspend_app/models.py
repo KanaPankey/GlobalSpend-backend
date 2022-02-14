@@ -6,7 +6,7 @@ class Envelope(models.Model):
     envelope_name = models.CharField(max_length=30)
 
     # there are a few currencies with 3 and 4 decimal places, but the major ones I'll be using have a max of 2 decimal places
-    current_balance = models.DecimalField(max_digits=14, decimal_places=2)
+    current_amt = models.DecimalField(max_digits=14, decimal_places=2)
     fill_amt = models.DecimalField(max_digits=14, decimal_places=2)
 
     def __str__(self):
@@ -14,15 +14,15 @@ class Envelope(models.Model):
 
 
 class Store(models.Model):
-    store_name = models.CharField(max_length=60)
+    store_name = models.CharField(max_length=30)
     store_longitude = models.DecimalField(max_digits=20, decimal_places=15)
     store_latitude = models.DecimalField(max_digits=20, decimal_places=15)
 
     # user chosen pre-defined typical amounts spent in a particular store
-    typical_amt_1 = models.IntegerField()
-    typical_amt_2 = models.IntegerField()
-    typical_amt_3 = models.IntegerField()
-    typical_amt_4 = models.IntegerField()
+    amt_1 = models.IntegerField()
+    amt_2 = models.IntegerField()
+    amt_3 = models.IntegerField()
+    amt_4 = models.IntegerField()
     envelope = models.ManyToManyField('Envelope', related_name='store')
 
     def __str__(self):
